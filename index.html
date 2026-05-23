@@ -37,7 +37,7 @@
       overflow-x: hidden;
     }
 
-    /* ── NOISE TEXTURE OVERLAY ── */
+    
     body::before {
       content: '';
       position: fixed;
@@ -47,7 +47,6 @@
       z-index: 0;
     }
 
-  
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -105,7 +104,8 @@
     .blob-3 { width: 250px; height: 250px; background: var(--rose-400); top: 40%; left: 30%; animation: float 12s ease-in-out infinite 2s; }
 
     @keyframes float {
-      
+      0%, 100% { transform: translateY(0) scale(1); }
+      50%       { transform: translateY(-30px) scale(1.05); }
     }
 
     .hero-text { position: relative; z-index: 1; }
@@ -349,7 +349,7 @@
     }
     .stat-label { font-size: 0.78rem; color: var(--text); margin-top: 0.25rem; }
 
-   
+    /* ── SKILLS ── */
     .skills { background: var(--blush); }
 
     .skills-grid {
@@ -574,7 +574,7 @@
     }
     footer span { color: var(--rose-300); }
 
-   
+    
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(30px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -643,8 +643,8 @@
     <div class="hero-photo">
       <div class="photo-frame">
         <img src="WhatsApp Image 2026-05-08 at 00.59.55.jpeg" alt="Melissa Helen"
-          Tech & Criatividade
-          <span>São João Evangelista · MG</span>
+           Tech & Criatividade
+          
         </div>
       </div>
     </div>
@@ -688,11 +688,11 @@
 
         <div class="about-stats">
           <div class="stat-box">
-            <div class="stat-number">2+</div>
+            <div class="stat-number"></div>
             <div class="stat-label">Anos estudando TI</div>
           </div>
           <div class="stat-box">
-            <div class="stat-number">🔧</div>
+            <div class="stat-number"></div>
             <div class="stat-label">Hardware & Manutenção</div>
           </div>
           <div class="stat-box">
@@ -704,14 +704,13 @@
     </div>
   </section>
 
-  
   <section class="skills" id="habilidades">
     <div class="section-label">O que eu sei fazer</div>
     <h2 class="section-title">Minhas <em style="font-style:italic;color:var(--magenta)">habilidades</em></h2>
 
     <div class="skills-grid">
       <div class="skill-card reveal">
-        <div class="skill-icon">🔧</div>
+        <div class="skill-icon"></div>
         <h3>Manutenção de Computadores</h3>
         <p>Diagnóstico e reparo de hardware, montagem e desmontagem de computadores, instalação de componentes e sistemas operacionais.</p>
         <div class="skill-bar-wrap">
@@ -733,7 +732,7 @@
         <h3>Sistemas Operacionais</h3>
         <p>Instalação, configuração e manutenção de sistemas operacionais Windows e Linux, particionamento de disco e gerenciamento de arquivos.</p>
         <div class="skill-bar-wrap">
-         
+          
         </div>
       </div>
 
@@ -742,7 +741,8 @@
         <h3>Redes & Infraestrutura</h3>
         <p>Conceitos básicos de redes de computadores, configuração de roteadores, cabeamento e diagnóstico de conexões.</p>
         <div class="skill-bar-wrap">
-          
+          <div class="skill-bar-label"><span>Redes</span><span>55%</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="width:55%"></div></div>
         </div>
       </div>
 
@@ -751,7 +751,8 @@
         <h3>Pacote Office</h3>
         <p>Uso produtivo de Word, Excel e PowerPoint para criação de documentos, planilhas e apresentações profissionais.</p>
         <div class="skill-bar-wrap">
-          
+          <div class="skill-bar-label"><span>Office</span><span>80%</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div>
         </div>
       </div>
 
@@ -766,14 +767,14 @@
     </div>
   </section>
 
-
+ 
   <section class="projects" id="projetos">
     <div class="section-label">O que estou construindo</div>
     <h2 class="section-title">Projetos <em style="font-style:italic;color:var(--magenta)">& Trabalhos</em></h2>
 
     <div class="projects-grid">
       <div class="project-card reveal">
-        <div class="project-thumb" style="background:linear-gradient()"></div>
+        <div class="project-thumb" style="background:linear-gradient(135deg,#fce4ec,#f48fb1)"></div>
         <div class="project-body">
           <span class="project-tag">HTML · CSS</span>
           <h3>Meu Portfólio Pessoal</h3>
@@ -791,7 +792,7 @@
       </div>
 
       <div class="project-card reveal">
-        <div class="project-thumb" style="background:linear-gradient(135deg,#ffadd2,#c41d7f)"></div>
+        <div class="project-thumb" style="background:linear-gradient(135deg,#ffadd2,#c41d7f)">💡</div>
         <div class="project-body">
           <span class="project-tag">Em andamento</span>
           <h3>Aprendendo Programação</h3>
@@ -813,17 +814,17 @@
         <p>Fã de animações japonesas — histórias envolventes e mundos únicos</p>
       </div>
       <div class="interest-item reveal">
-        
+       
         <h4>Doramas</h4>
         <p>Séries asiáticas com narrativas ricas e produções incríveis</p>
       </div>
       <div class="interest-item reveal">
-        
+       
         <h4>Filmes de Terror</h4>
         <p>Amo a adrenalina e a criatividade por trás do gênero</p>
       </div>
       <div class="interest-item reveal">
-       
+        
         <h4>Hardware</h4>
         <p>Entender os computadores por dentro é uma paixão genuína</p>
       </div>
@@ -832,14 +833,14 @@
         <h4>Web Design</h4>
         <p>Criar interfaces bonitas e funcionais com HTML e CSS</p>
       </div>
-      <div class="interest-item reveal">
-       
+      
         <h4>Tranquilidade</h4>
         <p>Valorizo ambientes calmos e conexões autênticas</p>
       </div>
     </div>
   </section>
 
+  <!-- CONTATO -->
   <section class="contact" id="contato">
     <div class="section-label">Vamos conversar</div>
     <h2 class="section-title">Entre em <em style="font-style:italic;color:var(--magenta)">contato</em></h2>
@@ -905,12 +906,8 @@
     </div>
   </section>
 
-  <footer>
-   
-  </footer>
+  
 
-  <script>
-    
-  </script>
+
 </body>
 </html>
