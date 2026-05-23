@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Melissa Helen | Portfólio</title>
-  <link href="" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,900;1,900&display=swap" rel="stylesheet" />
   <style>
     :root {
       --rose-50:  #fff0f6;
@@ -221,7 +221,7 @@
     }
 
     .photo-frame::after {
-      content: '✦';
+      content: '';
       position: absolute;
       font-size: 2rem;
       color: var(--magenta);
@@ -349,7 +349,6 @@
     }
     .stat-label { font-size: 0.78rem; color: var(--text); margin-top: 0.25rem; }
 
-    /* ── SKILLS ── */
     .skills { background: var(--blush); }
 
     .skills-grid {
@@ -581,11 +580,8 @@
     }
 
     .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      animation: fadeUp 0.8s ease both;
     }
-    .reveal.visible { opacity: 1; transform: none; }
 
    
     ::-webkit-scrollbar { width: 8px; }
@@ -607,7 +603,7 @@
 
   
   <nav>
-    <div class="nav-logo">MH ✦</div>
+    <div class="nav-logo">MH </div>
     <ul class="nav-links">
       <li><a href="#sobre">Sobre</a></li>
       <li><a href="#habilidades">Habilidades</a></li>
@@ -624,7 +620,7 @@
     <div class="blob blob-3"></div>
 
     <div class="hero-text">
-      <div class="hero-tag">✦ Estudante de TI · IFMG SJE</div>
+      <div class="hero-tag"> Estudante de TI · IFMG SJE</div>
       <h1 class="hero-title">
         Olá, sou<br>
         <span>Melissa Helen</span>
@@ -635,7 +631,7 @@
         transformar ideias em soluções tecnológicas criativas.
       </p>
       <div class="hero-btns">
-        <a href="#projetos" class="btn-primary">Ver projetos ↓</a>
+        <a href="#projetos" class="btn-primary">Ver projetos </a>
         <a href="#contato" class="btn-ghost">Falar comigo</a>
       </div>
     </div>
@@ -643,9 +639,8 @@
     <div class="hero-photo">
       <div class="photo-frame">
         <img src="WhatsApp Image 2026-05-08 at 00.59.55.jpeg" alt="Melissa Helen"
-           Tech & Criatividade
-          
-        </div>
+             style="width:100%;height:100%;object-fit:cover;border-radius:200px 200px 180px 180px;border:5px solid #fff;box-shadow:0 20px 60px rgba(233,30,140,0.25);display:block;" />
+        <div class="photo-badge"> Tech  Criatividade<span>IFMG · SJE</span></div>
       </div>
     </div>
   </section>
@@ -666,11 +661,11 @@
             e crescer tanto pessoal quanto profissionalmente.
           </p>
           <div class="about-interests">
-            <span class="tag">🎌 Anime</span>
-            <span class="tag">🎬 Doramas</span>
-            <span class="tag">👻 Terror</span>
-            <span class="tag">💻 Hardware</span>
-            <span class="tag">🌐 HTML</span>
+            <span class="tag"> Anime</span>
+            <span class="tag"> Doramas</span>
+            <span class="tag"> Terror</span>
+            <span class="tag"> Hardware</span>
+            <span class="tag"> HTML</span>
           </div>
         </div>
       </div>
@@ -713,56 +708,42 @@
         <div class="skill-icon"></div>
         <h3>Manutenção de Computadores</h3>
         <p>Diagnóstico e reparo de hardware, montagem e desmontagem de computadores, instalação de componentes e sistemas operacionais.</p>
-        <div class="skill-bar-wrap">
-          
-        </div>
+        
       </div>
 
       <div class="skill-card reveal">
         <div class="skill-icon"></div>
         <h3>HTML & Desenvolvimento Web</h3>
         <p>Criação de páginas web com HTML, estruturação de conteúdo, uso de tags semânticas e primeiros passos em estilização com CSS.</p>
-        <div class="skill-bar-wrap">
-          
-        </div>
+        
       </div>
 
       <div class="skill-card reveal">
-        <div class="skill-icon"></div>
+        <div class="skill-icon">️</div>
         <h3>Sistemas Operacionais</h3>
         <p>Instalação, configuração e manutenção de sistemas operacionais Windows e Linux, particionamento de disco e gerenciamento de arquivos.</p>
-        <div class="skill-bar-wrap">
-          
-        </div>
+        
       </div>
 
       <div class="skill-card reveal">
         <div class="skill-icon"></div>
         <h3>Redes & Infraestrutura</h3>
         <p>Conceitos básicos de redes de computadores, configuração de roteadores, cabeamento e diagnóstico de conexões.</p>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar-label"><span>Redes</span><span>55%</span></div>
-          <div class="skill-bar"><div class="skill-bar-fill" style="width:55%"></div></div>
-        </div>
+        
       </div>
 
       <div class="skill-card reveal">
         <div class="skill-icon"></div>
         <h3>Pacote Office</h3>
         <p>Uso produtivo de Word, Excel e PowerPoint para criação de documentos, planilhas e apresentações profissionais.</p>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar-label"><span>Office</span><span>80%</span></div>
-          <div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div>
-        </div>
+        
       </div>
 
       <div class="skill-card reveal">
         <div class="skill-icon"></div>
         <h3>Raciocínio Lógico</h3>
         <p>Resolução de problemas técnicos, pensamento sistemático para diagnóstico de falhas e capacidade de aprendizado rápido.</p>
-        <div class="skill-bar-wrap">
-          
-        </div>
+        
       </div>
     </div>
   </section>
@@ -783,7 +764,7 @@
       </div>
 
       <div class="project-card reveal">
-        <div class="project-thumb" style="background:linear-gradient(135deg,#f8bbd0,#e91e8c)">🔧</div>
+        <div class="project-thumb" style="background:linear-gradient(135deg,#f8bbd0,#e91e8c)"></div>
         <div class="project-body">
           <span class="project-tag">Hardware</span>
           <h3>Manutenção e Diagnóstico</h3>
@@ -792,7 +773,7 @@
       </div>
 
       <div class="project-card reveal">
-        <div class="project-thumb" style="background:linear-gradient(135deg,#ffadd2,#c41d7f)">💡</div>
+        <div class="project-thumb" style="background:linear-gradient(135deg,#ffadd2,#c41d7f)"></div>
         <div class="project-body">
           <span class="project-tag">Em andamento</span>
           <h3>Aprendendo Programação</h3>
@@ -809,38 +790,39 @@
 
     <div class="interests-grid">
       <div class="interest-item reveal">
-        
+        <div class="emoji"></div>
         <h4>Anime</h4>
         <p>Fã de animações japonesas — histórias envolventes e mundos únicos</p>
       </div>
       <div class="interest-item reveal">
-       
+        <div class="emoji"></div>
         <h4>Doramas</h4>
         <p>Séries asiáticas com narrativas ricas e produções incríveis</p>
       </div>
       <div class="interest-item reveal">
-       
+        <div class="emoji"></div>
         <h4>Filmes de Terror</h4>
         <p>Amo a adrenalina e a criatividade por trás do gênero</p>
       </div>
       <div class="interest-item reveal">
-        
+        <div class="emoji"></div>
         <h4>Hardware</h4>
         <p>Entender os computadores por dentro é uma paixão genuína</p>
       </div>
       <div class="interest-item reveal">
-        
+        <div class="emoji"></div>
         <h4>Web Design</h4>
         <p>Criar interfaces bonitas e funcionais com HTML e CSS</p>
       </div>
-      
+      <div class="interest-item reveal">
+        <div class="emoji"></div>
         <h4>Tranquilidade</h4>
         <p>Valorizo ambientes calmos e conexões autênticas</p>
       </div>
     </div>
   </section>
 
-  <!-- CONTATO -->
+  
   <section class="contact" id="contato">
     <div class="section-label">Vamos conversar</div>
     <h2 class="section-title">Entre em <em style="font-style:italic;color:var(--magenta)">contato</em></h2>
@@ -899,7 +881,7 @@
           <label>Mensagem</label>
           <textarea placeholder="O que você gostaria de compartilhar?"></textarea>
         </div>
-        <button class="btn-submit" onclick="alert('Mensagem enviada! Em breve entrarei em contato ')">
+        <button class="btn-submit" >
           Enviar mensagem 
         </button>
       </div>
@@ -908,6 +890,10 @@
 
   
 
+
+  <footer>
+    
+  </footer>
 
 </body>
 </html>
