@@ -915,43 +915,7 @@
   </footer>
 
   <script>
-    // Scroll reveal
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((e, i) => {
-        if (e.isIntersecting) {
-          setTimeout(() => e.target.classList.add('visible'), i * 80);
-        }
-      });
-    }, { threshold: 0.1 });
-    reveals.forEach(r => observer.observe(r));
-
-    // Animate skill bars on scroll
-    const bars = document.querySelectorAll('.skill-bar-fill');
-    const barObserver = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          const fill = e.target;
-          const width = fill.style.width;
-          fill.style.width = '0';
-          setTimeout(() => { fill.style.width = width; }, 100);
-        }
-      });
-    }, { threshold: 0.5 });
-    bars.forEach(b => barObserver.observe(b));
-
-    // Smooth active nav
-    window.addEventListener('scroll', () => {
-      const links = document.querySelectorAll('.nav-links a');
-      const sections = document.querySelectorAll('section');
-      let current = '';
-      sections.forEach(s => {
-        if (window.scrollY >= s.offsetTop - 120) current = s.id;
-      });
-      links.forEach(l => {
-        l.style.color = l.getAttribute('href') === '#' + current ? 'var(--magenta)' : '';
-      });
-    });
+    
   </script>
 </body>
 </html>
