@@ -1,0 +1,961 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Melissa Helen | Portfólio</title>
+  <link href="" rel="stylesheet" />
+  <style>
+    :root {
+      --rose-50:  #fff0f6;
+      --rose-100: #ffd6e7;
+      --rose-200: #ffadd2;
+      --rose-300: #ff85be;
+      --rose-400: #f759ab;
+      --rose-500: #eb2f96;
+      --rose-600: #c41d7f;
+      --rose-700: #9e1068;
+      --blush:    #fce4ec;
+      --petal:    #f8bbd0;
+      --flamingo: #f48fb1;
+      --magenta:  #e91e8c;
+      --deep:     #880e4f;
+      --white:    #ffffff;
+      --dark:     #1a0010;
+      --text:     #4a0030;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--blush);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── NOISE TEXTURE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 5vw;
+      background: rgba(252, 228, 236, 0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--petal);
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--magenta);
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--magenta); }
+
+   
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 8rem 5vw 4rem;
+      gap: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.45;
+      pointer-events: none;
+    }
+    .blob-1 { width: 500px; height: 500px; background: var(--rose-300); top: -100px; right: -100px; animation: float 8s ease-in-out infinite; }
+    .blob-2 { width: 350px; height: 350px; background: var(--flamingo); bottom: -80px; left: -80px; animation: float 10s ease-in-out infinite reverse; }
+    .blob-3 { width: 250px; height: 250px; background: var(--rose-400); top: 40%; left: 30%; animation: float 12s ease-in-out infinite 2s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50%       { transform: translateY(-30px) scale(1.05); }
+    }
+
+    .hero-text { position: relative; z-index: 1; }
+
+    .hero-tag {
+      display: inline-block;
+      background: var(--rose-200);
+      color: var(--deep);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5vw, 5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--deep);
+      animation: fadeUp 0.9s ease 0.1s both;
+    }
+
+    .hero-title span {
+      font-style: italic;
+      color: var(--magenta);
+      position: relative;
+    }
+    .hero-title span::after {
+      content: '';
+      position: absolute;
+      bottom: 4px; left: 0; right: 0;
+      height: 3px;
+      background: var(--rose-300);
+      border-radius: 2px;
+    }
+
+    .hero-sub {
+      margin-top: 1.5rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--text);
+      max-width: 480px;
+      animation: fadeUp 0.9s ease 0.2s both;
+    }
+
+    .hero-btns {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      animation: fadeUp 0.9s ease 0.35s both;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--magenta);
+      color: #fff;
+      padding: 0.85rem 2rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 8px 30px rgba(233,30,140,0.35);
+    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(233,30,140,0.45); }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 2px solid var(--magenta);
+      color: var(--magenta);
+      padding: 0.85rem 2rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: background 0.3s, color 0.3s;
+    }
+    .btn-ghost:hover { background: var(--magenta); color: #fff; }
+
+    /* ── HERO PHOTO ── */
+    .hero-photo {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      animation: fadeUp 1s ease 0.4s both;
+    }
+
+    .photo-frame {
+      position: relative;
+      width: 340px;
+      height: 420px;
+    }
+
+    .photo-frame::before {
+      content: '';
+      position: absolute;
+      inset: -12px;
+      border: 2px dashed var(--rose-300);
+      border-radius: 200px 200px 180px 180px;
+      animation: spin 20s linear infinite;
+    }
+
+    .photo-frame::after {
+      content: '✦';
+      position: absolute;
+      font-size: 2rem;
+      color: var(--magenta);
+      top: -30px; right: -10px;
+      animation: spin 8s linear infinite reverse;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 200px 200px 180px 180px;
+      border: 5px solid var(--white);
+      box-shadow: 0 20px 60px rgba(233,30,140,0.25);
+      display: block;
+    }
+
+    .photo-badge {
+      position: absolute;
+      bottom: 20px;
+      right: -30px;
+      background: var(--white);
+      border-radius: 16px;
+      padding: 0.8rem 1.2rem;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--deep);
+      white-space: nowrap;
+    }
+    .photo-badge span { display: block; font-size: 0.7rem; font-weight: 400; color: var(--magenta); }
+
+    section { padding: 6rem 5vw; position: relative; z-index: 1; }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--magenta);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 900;
+      color: var(--deep);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .about { background: var(--white); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 5rem;
+      align-items: center;
+      margin-top: 3rem;
+    }
+
+    .about-visual {
+      position: relative;
+    }
+
+    .about-card {
+      background: var(--blush);
+      border-radius: 24px;
+      padding: 2.5rem;
+      border: 1px solid var(--petal);
+    }
+
+    .about-card-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .about-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--deep);
+      margin-bottom: 0.5rem;
+    }
+    .about-card p { font-size: 0.9rem; line-height: 1.7; color: var(--text); }
+
+    .about-interests {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .tag {
+      background: var(--rose-100);
+      color: var(--deep);
+      border-radius: 999px;
+      padding: 0.4rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .about-text p { line-height: 1.8; font-size: 1rem; color: var(--text); margin-bottom: 1.2rem; }
+
+    .about-stats {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .stat-box {
+      text-align: center;
+      background: var(--blush);
+      border-radius: 16px;
+      padding: 1.5rem 1rem;
+      border: 1px solid var(--petal);
+    }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--magenta);
+    }
+    .stat-label { font-size: 0.78rem; color: var(--text); margin-top: 0.25rem; }
+
+    /* ── SKILLS ── */
+    .skills { background: var(--blush); }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .skill-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 2rem;
+      border: 1px solid var(--petal);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--rose-300), var(--magenta));
+    }
+
+    .skill-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(233,30,140,0.15); }
+
+    .skill-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+    .skill-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: var(--deep);
+      margin-bottom: 0.5rem;
+    }
+    .skill-card p { font-size: 0.875rem; line-height: 1.7; color: var(--text); }
+
+    .skill-bar-wrap { margin-top: 1.2rem; }
+    .skill-bar-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      margin-bottom: 0.4rem;
+      color: var(--text);
+    }
+    .skill-bar {
+      height: 6px;
+      background: var(--rose-100);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .skill-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--rose-300), var(--magenta));
+      border-radius: 999px;
+      transition: width 1.5s ease;
+    }
+
+    .projects { background: var(--white); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .project-card {
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--petal);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .project-card:hover { transform: translateY(-8px); box-shadow: 0 24px 60px rgba(233,30,140,0.2); }
+
+    .project-thumb {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+    }
+
+    .project-body { padding: 1.8rem; background: var(--blush); }
+    .project-tag {
+      display: inline-block;
+      background: var(--rose-200);
+      color: var(--deep);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      margin-bottom: 0.8rem;
+    }
+    .project-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--deep);
+      margin-bottom: 0.5rem;
+    }
+    .project-body p { font-size: 0.875rem; line-height: 1.7; color: var(--text); }
+
+    .interests { background: linear-gradient(135deg, var(--deep), var(--rose-700)); }
+
+    .interests .section-title { color: var(--white); }
+    .interests .section-label { color: var(--rose-200); }
+
+    .interests-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .interest-item {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      transition: background 0.3s, transform 0.3s;
+    }
+    .interest-item:hover { background: rgba(255,255,255,0.15); transform: translateY(-4px); }
+    .interest-item .emoji { font-size: 2.5rem; margin-bottom: 0.8rem; }
+    .interest-item h4 { color: var(--white); font-size: 1rem; font-weight: 600; }
+    .interest-item p { color: var(--rose-200); font-size: 0.8rem; margin-top: 0.3rem; }
+
+    .contact { background: var(--blush); }
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+      margin-top: 3rem;
+    }
+
+    .contact-info p { line-height: 1.8; font-size: 1rem; margin-bottom: 2rem; color: var(--text); }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+    .contact-icon {
+      width: 48px; height: 48px;
+      background: var(--white);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      box-shadow: 0 4px 14px rgba(233,30,140,0.15);
+      flex-shrink: 0;
+    }
+    .contact-text { font-size: 0.9rem; }
+    .contact-text strong { display: block; color: var(--deep); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.15rem; }
+    .contact-text a { color: var(--magenta); text-decoration: none; font-weight: 500; }
+    .contact-text a:hover { text-decoration: underline; }
+
+    .contact-form {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 2.5rem;
+      border: 1px solid var(--petal);
+    }
+
+    .form-group { margin-bottom: 1.4rem; }
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--deep);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.5rem;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      border: 1.5px solid var(--petal);
+      border-radius: 12px;
+      padding: 0.85rem 1rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text);
+      background: var(--blush);
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--magenta); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    .btn-submit {
+      width: 100%;
+      background: linear-gradient(135deg, var(--rose-500), var(--magenta));
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 1rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.3s, transform 0.3s;
+      box-shadow: 0 8px 30px rgba(233,30,140,0.35);
+    }
+    .btn-submit:hover { opacity: 0.9; transform: translateY(-2px); }
+
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 2rem 5vw;
+      font-size: 0.85rem;
+    }
+    footer span { color: var(--rose-300); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+   
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--blush); }
+    ::-webkit-scrollbar-thumb { background: var(--rose-300); border-radius: 999px; }
+
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; text-align: center; padding-top: 7rem; }
+      .hero-photo { order: -1; }
+      .photo-frame { width: 250px; height: 310px; }
+      .photo-badge { right: 0; bottom: 0; }
+      .about-grid, .contact-wrapper { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-stats { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  
+  <nav>
+    <div class="nav-logo">MH ✦</div>
+    <ul class="nav-links">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#habilidades">Habilidades</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#interesses">Interesses</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+
+  
+  <section class="hero" id="inicio">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <div class="hero-text">
+      <div class="hero-tag">✦ Estudante de TI · IFMG SJE</div>
+      <h1 class="hero-title">
+        Olá, sou<br>
+        <span>Melissa Helen</span>
+      </h1>
+      <p class="hero-sub">
+        Estudante de Técnico em Informática no IFMG de São João Evangelista. 
+        Apaixonada por manutenção de computadores, desenvolvimento web e por 
+        transformar ideias em soluções tecnológicas criativas.
+      </p>
+      <div class="hero-btns">
+        <a href="#projetos" class="btn-primary">Ver projetos ↓</a>
+        <a href="#contato" class="btn-ghost">Falar comigo</a>
+      </div>
+    </div>
+
+    <div class="hero-photo">
+      <div class="photo-frame">
+        <img src="WhatsApp Image 2026-05-08 at 00.59.55.jpeg" alt="Melissa Helen"
+          💻 Tech & Criatividade
+          <span>São João Evangelista · MG</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="about" id="sobre">
+    <div class="section-label">Quem sou eu</div>
+    <h2 class="section-title">Um pouco sobre<br><em>minha trajetória</em></h2>
+
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="about-card">
+          <div class="about-card-icon">🌸</div>
+          <h3>Melissa Helen</h3>
+          <p>
+            Uma pessoa tranquila, curiosa e apaixonada por tecnologia. 
+            Morando em São João Evangelista, busco sempre aprender mais 
+            e crescer tanto pessoal quanto profissionalmente.
+          </p>
+          <div class="about-interests">
+            <span class="tag">🎌 Anime</span>
+            <span class="tag">🎬 Doramas</span>
+            <span class="tag">👻 Terror</span>
+            <span class="tag">💻 Hardware</span>
+            <span class="tag">🌐 HTML</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-text reveal">
+        <p>
+          Cursando o <strong>Técnico em Informática</strong> no Instituto Federal de Minas Gerais — campus São João Evangelista (IFMG SJE), estou construindo uma base sólida em tecnologia com foco especial em <strong>manutenção de computadores</strong> e <strong>desenvolvimento web</strong>.
+        </p>
+        <p>
+          Tenho interesse em entender os computadores de dentro para fora — seja abrindo um gabinete para diagnosticar um problema de hardware, ou escrevendo linhas de HTML para dar vida a uma página. Essa combinação me permite enxergar a tecnologia de forma completa.
+        </p>
+        <p>
+          Sou uma pessoa reservada e focada, que valoriza conexões genuínas. Nas horas livres, gosto de explorar o universo de <em>animes</em>, <em>doramas</em> e filmes de terror — que me ensinam muito sobre narrativa, cultura e criatividade.
+        </p>
+
+        <div class="about-stats">
+          <div class="stat-box">
+            <div class="stat-number">2+</div>
+            <div class="stat-label">Anos estudando TI</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">🔧</div>
+            <div class="stat-label">Hardware & Manutenção</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">🌐</div>
+            <div class="stat-label">Dev Web em evolução</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HABILIDADES -->
+  <section class="skills" id="habilidades">
+    <div class="section-label">O que eu sei fazer</div>
+    <h2 class="section-title">Minhas <em style="font-style:italic;color:var(--magenta)">habilidades</em></h2>
+
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-icon">🔧</div>
+        <h3>Manutenção de Computadores</h3>
+        <p>Diagnóstico e reparo de hardware, montagem e desmontagem de computadores, instalação de componentes e sistemas operacionais.</p>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label"><span>Hardware</span><span>75%</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="width:75%"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-icon">🌐</div>
+        <h3>HTML & Desenvolvimento Web</h3>
+        <p>Criação de páginas web com HTML, estruturação de conteúdo, uso de tags semânticas e primeiros passos em estilização com CSS.</p>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label"><span>HTML/CSS</span><span>65%</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="width:65%"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-icon">💿</div>
+        <h3>Sistemas Operacionais</h3>
+        <p>Instalação, configuração e manutenção de sistemas operacionais Windows e Linux, particionamento de disco e gerenciamento de arquivos.</p>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label"><span>Windows / Linux</span><span>70%</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="width:70%"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-icon">🔌</div>
+        <h3>Redes & Infraestrutura</h3>
+        <p>Conceitos básicos de redes de computadores, configuração de roteadores, cabeamento e diagnóstico de conexões.</p>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label"><span>Redes</span><span>55%</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="width:55%"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-icon">📋</div>
+        <h3>Pacote Office</h3>
+        <p>Uso produtivo de Word, Excel e PowerPoint para criação de documentos, planilhas e apresentações profissionais.</p>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label"><span>Office</span><span>80%</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-icon">🧩</div>
+        <h3>Raciocínio Lógico</h3>
+        <p>Resolução de problemas técnicos, pensamento sistemático para diagnóstico de falhas e capacidade de aprendizado rápido.</p>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label"><span>Lógica</span><span>85%</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETOS -->
+  <section class="projects" id="projetos">
+    <div class="section-label">O que estou construindo</div>
+    <h2 class="section-title">Projetos <em style="font-style:italic;color:var(--magenta)">& Trabalhos</em></h2>
+
+    <div class="projects-grid">
+      <div class="project-card reveal">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#fce4ec,#f48fb1)">🌐</div>
+        <div class="project-body">
+          <span class="project-tag">HTML · CSS</span>
+          <h3>Meu Portfólio Pessoal</h3>
+          <p>Desenvolvimento deste portfólio utilizando HTML e CSS, aplicando conceitos de layout, paleta de cores e design responsivo aprendidos no curso.</p>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#f8bbd0,#e91e8c)">🔧</div>
+        <div class="project-body">
+          <span class="project-tag">Hardware</span>
+          <h3>Manutenção e Diagnóstico</h3>
+          <p>Atividades práticas de montagem, desmontagem e diagnóstico de computadores realizadas durante as aulas práticas no laboratório do IFMG SJE.</p>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#ffadd2,#c41d7f)">💡</div>
+        <div class="project-body">
+          <span class="project-tag">Em andamento</span>
+          <h3>Aprendendo Programação</h3>
+          <p>Explorando os fundamentos da programação, lógica e algoritmos como parte da grade curricular do curso técnico em informática.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="interests" id="interesses">
+    <div class="section-label">Além da tecnologia</div>
+    <h2 class="section-title" style="color:white">Meus <em style="font-style:italic;color:var(--rose-200)">interesses</em></h2>
+
+    <div class="interests-grid">
+      <div class="interest-item reveal">
+        <div class="emoji">🎌</div>
+        <h4>Anime</h4>
+        <p>Fã de animações japonesas — histórias envolventes e mundos únicos</p>
+      </div>
+      <div class="interest-item reveal">
+        <div class="emoji">🎬</div>
+        <h4>Doramas</h4>
+        <p>Séries asiáticas com narrativas ricas e produções incríveis</p>
+      </div>
+      <div class="interest-item reveal">
+        <div class="emoji">👻</div>
+        <h4>Filmes de Terror</h4>
+        <p>Amo a adrenalina e a criatividade por trás do gênero</p>
+      </div>
+      <div class="interest-item reveal">
+        <div class="emoji">💻</div>
+        <h4>Hardware</h4>
+        <p>Entender os computadores por dentro é uma paixão genuína</p>
+      </div>
+      <div class="interest-item reveal">
+        <div class="emoji">🌐</div>
+        <h4>Web Design</h4>
+        <p>Criar interfaces bonitas e funcionais com HTML e CSS</p>
+      </div>
+      <div class="interest-item reveal">
+        <div class="emoji">🌸</div>
+        <h4>Tranquilidade</h4>
+        <p>Valorizo ambientes calmos e conexões autênticas</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section class="contact" id="contato">
+    <div class="section-label">Vamos conversar</div>
+    <h2 class="section-title">Entre em <em style="font-style:italic;color:var(--magenta)">contato</em></h2>
+
+    <div class="contact-wrapper">
+      <div class="contact-info reveal">
+        <p>
+          Quer bater um papo sobre tecnologia, tirar dúvidas, ou simplesmente se conectar? 
+          Estou sempre aberta a novas conversas e oportunidades de aprendizado. 
+          Me chama — será um prazer! 🌸
+        </p>
+
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div class="contact-text">
+            <strong>E-mail</strong>
+            <a href="mailto:melissapereira0989@gmail.com">melissapereira0989@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div class="contact-text">
+            <strong>WhatsApp</strong>
+            <a href="https://wa.me/5533998781060" target="_blank">(33) 99878-1060</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div class="contact-text">
+            <strong>Localização</strong>
+            <span>São João Evangelista · MG · Brasil</span>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">🎓</div>
+          <div class="contact-text">
+            <strong>Instituição</strong>
+            <span>IFMG · Campus São João Evangelista</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form reveal">
+        <div class="form-group">
+          <label>Seu nome</label>
+          <input type="text" placeholder="Como posso te chamar?" />
+        </div>
+        <div class="form-group">
+          <label>E-mail</label>
+          <input type="email" placeholder="seu@email.com" />
+        </div>
+        <div class="form-group">
+          <label>Mensagem</label>
+          <textarea placeholder="O que você gostaria de compartilhar?"></textarea>
+        </div>
+        <button class="btn-submit" onclick="alert('Mensagem enviada! Em breve entrarei em contato 🌸')">
+          Enviar mensagem 🌸
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Feito com <span>♥</span> por <strong>Melissa Helen</strong> · IFMG SJE · São João Evangelista · 2026</p>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 80);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(r => observer.observe(r));
+
+    // Animate skill bars on scroll
+    const bars = document.querySelectorAll('.skill-bar-fill');
+    const barObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const fill = e.target;
+          const width = fill.style.width;
+          fill.style.width = '0';
+          setTimeout(() => { fill.style.width = width; }, 100);
+        }
+      });
+    }, { threshold: 0.5 });
+    bars.forEach(b => barObserver.observe(b));
+
+    // Smooth active nav
+    window.addEventListener('scroll', () => {
+      const links = document.querySelectorAll('.nav-links a');
+      const sections = document.querySelectorAll('section');
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 120) current = s.id;
+      });
+      links.forEach(l => {
+        l.style.color = l.getAttribute('href') === '#' + current ? 'var(--magenta)' : '';
+      });
+    });
+  </script>
+</body>
+</html>
